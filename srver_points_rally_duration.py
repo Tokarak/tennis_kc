@@ -35,7 +35,7 @@ for (df, label) in [(df_m, "M"), (df_w, "F")]:
         X.append(quantiles)
     X = np.array(X)
     plt.errorbar(np.arange(1, 16),
-                 X[:15, 1], yerr=X[:15, 0]-X[:15, 1], fmt=".--", label=label)
+                 X[:15, 1], yerr=X[:15, 1]-X[:15, 0], fmt=".--", label=label)
     plt.hlines(.5, 0, 14)
 plt.title("%age of pts won by the server by rally duration")
 plt.xlabel("Rally Duration")
