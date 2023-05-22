@@ -10,6 +10,10 @@ df_fs = df[df["1stIn"] == 1]
 df_ss = df[df["2ndIn"] == 1]
 print("Probability of first serve being in:", df_fs.shape[0]/df.shape[0])
 print("Probability of second serve being in, given that the first serve is out:", df_ss.shape[0]/(df.shape[0]-df_fs.shape[0]))
+print("Probability of server winning on first serve is", df_fs[df_fs["isSvrWinner"]==1].shape[0]/df_fs.shape[0])
+print("Probability of server winning on second serve is", df_ss[df_ss["isSvrWinner"]==1].shape[0]/df_ss.shape[0])
 # for dfn, label in [(df_fs, "df_fs"), (df_ss, "df_ss")]:
 #    print("Probability of server winning in", label, "is", dfn[dfn["isSvrWinner"]==1].shape[0]/dfn.shape[0])
-s
+
+
+#%%
