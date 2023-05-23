@@ -18,15 +18,17 @@ import pandas as pd
 # df_converters = {'TbSet': strtobool, 'TB?': strtobool,}
 
 
-def get_df():
+def get_df(*args, **kwargs):
     # placeholder:
     df_frames = []
     for g in ["m", "w"]:
         for y in ["from-2017", "to-2016"]:
             df = pd.read_csv("tennis_MatchChartingProject/charting-{}-points-{}.csv".format(g, y),
-                             encoding="ISO-8859-1", )
+                             encoding="ISO-8859-1",
+                             *args, **kwargs)
             df_frames.append(df)
     df = pd.concat(df_frames)
+    df = df.where(pd.notnull(df), None)
 
     return df
 
